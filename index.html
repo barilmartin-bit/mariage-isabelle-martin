@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Isabelle &amp; Martin – Mariage le 3 juillet 2027</title>
+<meta name="description" content="Isabelle et Martin vous invitent à leur mariage le samedi 3 juillet 2027 au Manoir Rouville-Campbell.">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivoire:#faf7f0; --ivoire2:#f3eee2; --vert:#3a4a3a; --sauge:#6b7f5e; --or:#b08d4a; --texte:#4b5a4b; --trait:#d9cfb8; --rouge:#a4473a;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Jost','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivoire);color:var(--texte);font-family:var(--serif);font-size:19px;line-height:1.65;-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--sauge)}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+.wide{max-width:1040px;margin:0 auto;padding:0 22px}
+.etiquette{font-family:var(--sans);font-weight:400;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--or);margin:0 0 10px}
+h1,h2,h3{font-weight:500;color:var(--vert);margin:0;line-height:1.2}
+h2{font-size:clamp(30px,5vw,40px);margin-bottom:14px}
+.centre{text-align:center}
+.sep{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto;padding:10px 0;color:var(--or);font-size:13px}
+.sep::before,.sep::after{content:"";width:90px;border-top:1px solid var(--or);opacity:.8}
+section{padding:54px 0}
+
+/* En-tête */
+.hero{text-align:center;padding:34px 0 10px}
+.hero .sigle{width:min(430px,82vw);margin:0 auto;mix-blend-mode:multiply}
+.noms{font-family:var(--sans);font-weight:300;font-size:clamp(20px,4.6vw,30px);letter-spacing:.3em;color:var(--vert);margin:14px 0 0;padding-left:.3em}
+.hero .quand{font-size:clamp(24px,4.5vw,32px);color:var(--vert);margin:10px 0 2px}
+.hero .ou{font-style:italic;margin:0}
+nav.menu{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 26px;margin:26px 0 0;font-family:var(--sans);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+nav.menu a{color:var(--vert);text-decoration:none;padding:6px 2px;border-bottom:1px solid transparent}
+nav.menu a:hover{border-color:var(--or)}
+.bouton{display:inline-block;background:var(--vert);color:var(--ivoire);border:1px solid var(--or);padding:15px 34px;font-family:var(--sans);font-size:13px;letter-spacing:.25em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s}
+.bouton:hover{background:#2c3a2c}
+.bouton.leger{background:transparent;color:var(--vert);border-color:var(--vert)}
+.bouton.leger:hover{background:var(--ivoire2)}
+.bouton[disabled]{opacity:.6;cursor:wait}
+.accueil{padding-top:24px}
+.accueil p{font-size:clamp(20px,3.4vw,23px);max-width:620px;margin:16px auto 0}
+.nom-it{font-style:italic;color:var(--vert)}
+
+/* Dessin */
+.cadre{max-width:960px;margin:0 auto;padding:0 22px}
+.cadre figure{margin:0;border:1px solid var(--or);padding:10px;background:#fff9;box-shadow:0 10px 30px #3a4a3a1f}
+.cadre img{width:100%;border:1px solid var(--trait)}
+
+/* Détails */
+.grille{display:grid;gap:22px;grid-template-columns:1fr;margin-top:26px}
+@media(min-width:720px){.grille.deux{grid-template-columns:1fr 1fr}}
+.carte{background:#fffdf8;border:1px solid var(--trait);padding:28px 26px;text-align:center}
+.carte h3{font-size:26px;margin-bottom:6px}
+.carte p{margin:6px 0}
+.gros{font-size:28px;color:var(--vert)}
+.horaire{list-style:none;padding:0;margin:8px 0 0}
+.horaire li{display:flex;gap:16px;align-items:baseline;justify-content:center;padding:7px 0;border-top:1px solid var(--trait)}
+.horaire li:first-child{border-top:0}
+.horaire b{font-family:var(--sans);font-weight:400;color:var(--or);letter-spacing:.12em;min-width:64px;text-align:right}
+.horaire span{text-align:left;min-width:150px}
+.petit{font-size:16px;opacity:.9}
+
+/* Région */
+.activites{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:640px){.activites{grid-template-columns:1fr 1fr}}
+.activites li{background:#fffdf8;border:1px solid var(--trait);padding:14px 18px}
+.activites b{display:block;color:var(--vert);font-weight:600}
+.activites span{font-size:16px}
+
+/* Galerie (apparaît seulement si des photos sont ajoutées) */
+#galerie{display:none}
+.photos{display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-top:22px}
+@media(min-width:760px){.photos{grid-template-columns:repeat(3,1fr)}}
+.photos img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--trait)}
+
+/* Formulaire */
+#rsvp{background:var(--ivoire2);border-top:1px solid var(--trait);border-bottom:1px solid var(--trait)}
+form{margin-top:26px;text-align:left}
+fieldset{border:1px solid var(--trait);background:#fffdf8;padding:24px 22px 18px;margin:0 0 22px;min-width:0}
+fieldset[disabled]{display:none}
+legend{font-family:var(--sans);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--or);padding:0 10px}
+.champ{margin:0 0 16px}
+.champ label,.lbl{display:block;font-family:var(--sans);font-size:14px;letter-spacing:.04em;color:var(--vert);margin-bottom:5px}
+.req{color:var(--rouge)}
+input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea{width:100%;font:inherit;font-size:17px;font-family:var(--sans);font-weight:300;color:var(--vert);background:#fff;border:1px solid #cfc5ac;border-radius:2px;padding:11px 12px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--or);outline-offset:1px}
+textarea{min-height:100px;resize:vertical}
+.deux-col{display:grid;gap:0 16px;grid-template-columns:1fr}
+@media(min-width:620px){.deux-col{grid-template-columns:1fr 1fr}}
+.choix{display:flex;flex-wrap:wrap;gap:10px}
+.choix label{margin:0;font-family:var(--sans);font-size:15px;letter-spacing:0;display:inline-flex;align-items:center;gap:8px;border:1px solid #cfc5ac;background:#fff;padding:9px 14px;cursor:pointer;border-radius:2px;color:var(--vert)}
+.choix input{accent-color:var(--vert);width:17px;height:17px;margin:0}
+.choix label:has(input:checked){border-color:var(--vert);background:#eef2ea}
+.gros-choix label{padding:14px 18px;font-size:16px;flex:1 1 230px}
+.note{font-size:16px;font-style:italic;margin:0 0 14px}
+.personne{border:1px solid var(--or);background:#fffdf8;padding:18px 18px 4px;margin:0 0 16px;position:relative}
+.personne h4{margin:0 0 12px;font-family:var(--sans);font-weight:400;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--vert)}
+.retirer{position:absolute;top:10px;right:12px;background:none;border:0;color:var(--rouge);font-family:var(--sans);font-size:13px;cursor:pointer;text-decoration:underline}
+.sous-titre{font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin:16px 0 8px}
+.erreur{display:none;background:#fbeceb;border:1px solid var(--rouge);color:#7a2f26;padding:14px 16px;margin:0 0 18px;font-family:var(--sans);font-size:15px}
+.erreur.visible{display:block}
+.invalide{border-color:var(--rouge)!important}
+.cache{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.envoi{text-align:center;margin-top:8px}
+#merci{display:none;text-align:center;background:#fffdf8;border:1px solid var(--or);padding:40px 24px;margin-top:26px}
+#merci h3{font-size:34px;margin-bottom:10px}
+#merci .detail{font-family:var(--sans);font-size:15px;margin:18px auto 24px;max-width:480px;color:var(--texte)}
+footer{text-align:center;padding:44px 0 56px}
+footer .noms{font-size:18px}
+@media print{nav,.bouton{display:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="sigle" src="images/sigle.png" alt="Sigle I &amp; M – Isabelle et Martin" width="760" height="729">
+    <h1 class="noms">ISABELLE &amp; MARTIN</h1>
+    <p class="etiquette" style="margin-top:26px">Vous êtes invités à notre mariage</p>
+    <p class="quand">Samedi 3 juillet 2027</p>
+    <p class="ou">Manoir Rouville-Campbell · Mont-Saint-Hilaire</p>
+    <nav class="menu" aria-label="Navigation">
+      <a href="#details">Détails</a><a href="#hebergement">Hébergement</a><a href="#region">Dans la région</a><a href="#rsvp">Répondre</a>
+    </nav>
+  </div>
+</header>
+
+<section class="accueil">
+  <div class="wrap centre">
+    <div class="sep">◆</div>
+    <p><span class="nom-it">Isabelle Renaud</span> et <span class="nom-it">Martin Baril</span> sont heureux de vous inviter à célébrer leur mariage. Vous faites partie des personnes qui comptent le plus dans nos vies, et nous aimerions partager ce moment unique avec vous.</p>
+    <p style="margin-top:26px"><a class="bouton" href="#rsvp">Confirmer ma présence</a></p>
+  </div>
+</section>
+
+<div class="cadre">
+  <figure>
+    <img src="images/demande-crayon.jpg" alt="Dessin au crayon de la demande en mariage de Martin à Isabelle à Santorini, au coucher du soleil" width="1536" height="1024">
+  </figure>
+</div>
+
+<section id="details">
+  <div class="wrap centre">
+    <p class="etiquette">Le grand jour</p>
+    <h2>Détails</h2>
+    <div class="grille deux">
+      <div class="carte">
+        <h3>Quand</h3>
+        <p class="gros">Samedi 3 juillet 2027</p>
+        <ul class="horaire">
+          <li><b>15 h</b><span>Arrivée des invités<br><small class="petit">au plus tard</small></span></li>
+          <li><b>16 h</b><span>Cérémonie</span></li>
+          <li><b>2 h</b><span>Fin de la soirée</span></li>
+        </ul>
+      </div>
+      <div class="carte">
+        <h3>Où</h3>
+        <p class="gros">Manoir Rouville-Campbell</p>
+        <p>125, chemin des Patriotes Sud<br>Mont-Saint-Hilaire (Québec)&nbsp;J3H&nbsp;3G5</p>
+        <p class="petit">Environ 45 minutes de Montréal</p>
+        <p style="margin-top:14px">
+          <a href="https://belvoir.ca/manoirs/rouville-campbell" target="_blank" rel="noopener">Site du Manoir</a> ·
+          <a href="https://www.google.com/maps/search/?api=1&query=125+chemin+des+Patriotes+Sud+Mont-Saint-Hilaire+QC+J3H+3G5" target="_blank" rel="noopener">Itinéraire</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hebergement" style="padding-top:10px">
+  <div class="wrap centre">
+    <div class="sep">◆</div>
+    <p class="etiquette" style="margin-top:34px">Hébergement et souper du vendredi</p>
+    <h2>Une longue fin de semaine</h2>
+    <p>Des chambres seront disponibles au Manoir pour les nuits du <b>vendredi 2 juillet</b> et du <b>samedi 3 juillet</b>. Le lien pour réserver votre chambre vous sera envoyé par la suite; il nous aide dès maintenant à savoir combien de chambres bloquer, d’où les questions du formulaire ci-dessous.</p>
+    <p>Durant cette longue fin de semaine, ceux et celles qui seront présents le vendredi soir auront l’option de se joindre à nous pour un souper au restaurant du Manoir.</p>
+  </div>
+</section>
+
+<section id="region" style="padding-top:10px">
+  <div class="wrap centre">
+    <div class="sep">◆</div>
+    <p class="etiquette" style="margin-top:34px">Dans la région</p>
+    <h2>À découvrir autour du Manoir</h2>
+    <p>La région de Mont-Saint-Hilaire offre plusieurs activités pour agrémenter votre séjour.</p>
+    <ul class="activites" style="text-align:left">
+      <li><b>Village de Mont-Saint-Hilaire</b><span>Bistros, restaurants et boutiques au pied de la montagne, à quelques pas du Manoir.</span></li>
+      <li><b>Réserve naturelle Gault</b><span>Sentiers de randonnée dans une réserve de la biosphère de l’UNESCO.</span></li>
+      <li><b>Vignobles et cidreries</b><span>Dégustations et visites de vergers sur les flancs de la montagne.</span></li>
+      <li><b>Pistes cyclables</b><span>La piste Oka–Mont-Saint-Hilaire et la Montérégiade partent près du Manoir.</span></li>
+      <li><b>Strøm spa nordique</b><span>Bains thermaux en plein air, à quelques minutes du Manoir.</span></li>
+      <li><b>Rivière Richelieu</b><span>À contempler depuis les jardins, ou à explorer en canot ou en kayak.</span></li>
+    </ul>
+    <p style="margin-top:22px"><a href="https://belvoir.ca/manoirs/rouville-campbell/emplacement" target="_blank" rel="noopener">Voir l’onglet « Emplacement » du site du Manoir</a></p>
+  </div>
+</section>
+
+<section id="galerie" style="padding-top:10px">
+  <div class="wide centre">
+    <div class="sep">◆</div>
+    <p class="etiquette" style="margin-top:34px">Le Manoir</p>
+    <h2>Quelques images</h2>
+    <div class="photos" id="photos"></div>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="wrap">
+    <div class="centre">
+      <p class="etiquette">Réponse demandée</p>
+      <h2>Confirmer votre présence</h2>
+      <p>Merci de répondre <b>avant le 1<sup>er</sup> décembre 2026</b>. Un seul formulaire par famille ou groupe : vous pouvez y ajouter vos accompagnateurs et les autres personnes qui vous accompagnent. <i>Adultes seulement si possible.</i></p>
+    </div>
+
+    <form id="formulaire" novalidate autocomplete="on">
+      <div class="erreur" id="erreur" role="alert"></div>
+      <div class="cache" aria-hidden="true"><label>Ne pas remplir <input type="text" id="hp" name="hp" tabindex="-1" autocomplete="off"></label></div>
+
+      <fieldset>
+        <legend>Vos coordonnées</legend>
+        <div class="deux-col">
+          <div class="champ"><label for="prenom">Prénom <span class="req">*</span></label><input type="text" id="prenom" autocomplete="given-name" required></div>
+          <div class="champ"><label for="nom">Nom <span class="req">*</span></label><input type="text" id="nom" autocomplete="family-name" required></div>
+          <div class="champ"><label for="courriel">Courriel <span class="req">*</span></label><input type="email" id="courriel" autocomplete="email" required></div>
+          <div class="champ"><label for="cell">Cellulaire <span class="req">*</span></label><input type="tel" id="cell" autocomplete="tel" required></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Serez-vous des nôtres?</legend>
+        <div class="choix gros-choix">
+          <label><input type="radio" name="presence" value="Oui" required> Oui, avec grand plaisir!</label>
+          <label><input type="radio" name="presence" value="Non"> Non, malheureusement</label>
+        </div>
+      </fieldset>
+
+      <fieldset id="blocOui" disabled>
+        <legend>Vos restrictions et besoins</legend>
+        <div id="restr-principal"></div>
+      </fieldset>
+
+      <fieldset id="blocExtras" disabled>
+        <legend>Accompagnateurs et autres personnes</legend>
+        <p class="note">Ajoutez ici votre conjoint(e), vos accompagnateurs et, au besoin, vos enfants. Chaque personne a sa propre fiche.</p>
+        <div id="extras"></div>
+        <button type="button" class="bouton leger" id="ajouter">+ Ajouter une personne</button>
+      </fieldset>
+
+      <fieldset id="blocChambres" disabled>
+        <legend>Hébergement au Manoir</legend>
+        <p class="note">Simple intention, sans engagement : elle nous permet de réserver des blocs de chambres. Le lien de réservation vous sera envoyé par la suite.</p>
+        <div class="lbl">Souhaitez-vous louer une chambre?</div>
+        <div class="choix">
+          <label><input type="checkbox" id="chVen"> Vendredi 2 juillet</label>
+          <label><input type="checkbox" id="chSam"> Samedi 3 juillet</label>
+          <label><input type="checkbox" id="chAucune"> Non, pas de chambre</label>
+        </div>
+        <div class="champ" id="nbChambresBloc" style="display:none;margin-top:16px;max-width:260px">
+          <label for="nbChambres">Nombre de chambres souhaitées</label>
+          <select id="nbChambres"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+        </div>
+      </fieldset>
+
+      <fieldset id="blocSouper" disabled>
+        <legend>Souper du vendredi soir</legend>
+        <p class="note">Au restaurant du Manoir, le vendredi 2 juillet, pour ceux qui seront sur place.</p>
+        <div class="choix">
+          <label><input type="radio" name="souper" value="Oui"> Oui, nous serons là</label>
+          <label><input type="radio" name="souper" value="Non" checked> Non / pas certain</label>
+        </div>
+        <div class="champ" id="nbSouperBloc" style="display:none;margin-top:16px;max-width:260px">
+          <label for="nbSouper">Combien de personnes?</label>
+          <input type="number" id="nbSouper" min="1" max="30" value="1" inputmode="numeric">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Un petit mot?</legend>
+        <div class="champ"><label for="message">Message pour les mariés (facultatif)</label><textarea id="message" maxlength="1000"></textarea></div>
+      </fieldset>
+
+      <div class="envoi">
+        <button type="submit" class="bouton" id="envoyer">Envoyer ma réponse</button>
+      </div>
+    </form>
+
+    <div id="merci" role="status" aria-live="polite" tabindex="-1">
+      <div class="sep">◆</div>
+      <h3 id="merciTitre">Merci!</h3>
+      <p id="merciTexte"></p>
+      <p class="detail" id="merciDetail"></p>
+      <button type="button" class="bouton leger" id="modifier">Modifier ma réponse</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="noms">ISABELLE &amp; MARTIN</p>
+    <p class="petit" style="margin:6px 0 0">Avec tout notre amour · 3 juillet 2027</p>
+    <p class="petit" style="margin-top:18px">Une question? Écrivez-nous directement, nous nous ferons un plaisir de vous répondre.</p>
+  </div>
+</footer>
+
+<script>
+/* ============ CONFIGURATION ============ */
+// Collez ici l’URL de l’application Web Google (voir LISEZ-MOI.md, étape « Déployer »).
+const SCRIPT_URL = 'COLLER_ICI_L_URL_DU_SCRIPT_GOOGLE';
+/* ======================================= */
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const RESTR = ['Végétarien', 'Végétalien', 'Sans gluten', 'Sans lactose'];
+let compteur = 0;
+let souperManuel = false;
+
+/* ---- Photos du Manoir : s'affichent seulement si images/manoir-1.jpg ... manoir-6.jpg existent ---- */
+(function galerie() {
+  let n = 0;
+  for (let i = 1; i <= 6; i++) {
+    const img = new Image();
+    img.alt = 'Manoir Rouville-Campbell';
+    img.loading = 'lazy';
+    img.onload = () => { $('#photos').appendChild(img); if (!n++) $('#galerie').style.display = 'block'; };
+    img.src = 'images/manoir-' + i + '.jpg';
+  }
+})();
+
+/* ---- Bloc restrictions / mobilité (réutilisé par chaque personne) ---- */
+function blocRestrictions(id) {
+  return `
+    <div class="sous-titre">Restrictions alimentaires</div>
+    <div class="choix" data-restr="${id}">
+      ${RESTR.map(r => `<label><input type="checkbox" value="${r}"> ${r}</label>`).join('')}
+    </div>
+    <div class="champ" style="margin-top:14px">
+      <label for="all-${id}">Allergies ou autres restrictions (précisez)</label>
+      <input type="text" id="all-${id}" maxlength="300" placeholder="Ex. : arachides, fruits de mer…">
+    </div>
+    <div class="choix" style="margin:0 0 16px">
+      <label><input type="checkbox" id="mob-${id}"> Mobilité réduite</label>
+    </div>`;
+}
+$('#restr-principal').innerHTML = blocRestrictions('main');
+
+/* ---- Ajout / retrait de personnes ---- */
+function ajouterPersonne() {
+  const id = ++compteur;
+  const d = document.createElement('div');
+  d.className = 'personne';
+  d.dataset.id = id;
+  d.innerHTML = `
+    <h4>Personne <span class="num"></span></h4>
+    <button type="button" class="retirer" aria-label="Retirer cette personne">Retirer</button>
+    <div class="champ" style="max-width:340px">
+      <label for="t-${id}">Type</label>
+      <select id="t-${id}">
+        <option>Adulte</option>
+        <option>Enfant 0-4 ans</option>
+        <option>Enfant 5-12 ans</option>
+        <option>Enfant 13-17 ans</option>
+      </select>
+    </div>
+    <div class="deux-col">
+      <div class="champ"><label for="p-${id}">Prénom <span class="req">*</span></label><input type="text" id="p-${id}" required></div>
+      <div class="champ"><label for="n-${id}">Nom <span class="req">*</span></label><input type="text" id="n-${id}" required></div>
+    </div>
+    <div class="deux-col coord">
+      <div class="champ"><label for="c-${id}">Courriel (facultatif)</label><input type="email" id="c-${id}" autocomplete="off"></div>
+      <div class="champ"><label for="g-${id}">Cellulaire (facultatif)</label><input type="tel" id="g-${id}" autocomplete="off"></div>
+    </div>
+    ${blocRestrictions(id)}`;
+  $('#extras').appendChild(d);
+  $('.retirer', d).addEventListener('click', () => { d.remove(); majNumeros(); majSouper(); });
+  $('#t-' + id).addEventListener('change', () => majType(d));
+  majNumeros(); majSouper();
+  $('#p-' + id).focus();
+}
+function majType(d) {
+  const adulte = $('select', d).value === 'Adulte';
+  $('.coord', d).style.display = adulte ? '' : 'none';
+}
+function majNumeros() { $$('.personne').forEach((p, i) => $('.num', p).textContent = '#' + (i + 1)); }
+$('#ajouter').addEventListener('click', ajouterPersonne);
+
+/* ---- Affichage selon la réponse ---- */
+$$('input[name=presence]').forEach(r => r.addEventListener('change', () => {
+  const oui = $('input[name=presence]:checked').value === 'Oui';
+  ['#blocOui', '#blocExtras', '#blocChambres', '#blocSouper'].forEach(s => $(s).disabled = !oui);
+  masquerErreur();
+}));
+
+/* ---- Chambres ---- */
+function majChambres() {
+  const aucune = $('#chAucune');
+  if (aucune.checked && (this === aucune)) { $('#chVen').checked = false; $('#chSam').checked = false; }
+  if (this !== aucune && (this === $('#chVen') || this === $('#chSam')) && this.checked) aucune.checked = false;
+  $('#nbChambresBloc').style.display = ($('#chVen').checked || $('#chSam').checked) ? 'block' : 'none';
+}
+['#chVen', '#chSam', '#chAucune'].forEach(s => $(s).addEventListener('change', majChambres));
+
+/* ---- Souper ---- */
+function nbPersonnes() { return 1 + $$('.personne').length; }
+function majSouper() {
+  if (!souperManuel) $('#nbSouper').value = Math.min(nbPersonnes(), 30);
+}
+$$('input[name=souper]').forEach(r => r.addEventListener('change', () => {
+  const oui = $('input[name=souper]:checked').value === 'Oui';
+  $('#nbSouperBloc').style.display = oui ? 'block' : 'none';
+  if (oui) majSouper();
+}));
+$('#nbSouper').addEventListener('input', () => souperManuel = true);
+
+/* ---- Lecture des champs d'une personne ---- */
+function lireRestr(id) {
+  return {
+    restrictions: $$('input:checked', $(`[data-restr="${id}"]`)).map(i => i.value),
+    allergies: $('#all-' + id).value.trim(),
+    mobilite: $('#mob-' + id).checked
+  };
+}
+
+/* ---- Erreurs ---- */
+function montrerErreur(msg, champ) {
+  const e = $('#erreur'); e.textContent = msg; e.classList.add('visible');
+  if (champ) { champ.classList.add('invalide'); champ.focus({ preventScroll: true }); }
+  (champ || e).scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+function masquerErreur() { $('#erreur').classList.remove('visible'); $$('.invalide').forEach(x => x.classList.remove('invalide')); }
+document.addEventListener('input', e => e.target.classList && e.target.classList.remove('invalide'));
+
+/* ---- Validation ---- */
+const reCourriel = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+function valider() {
+  masquerErreur();
+  const requis = [['#prenom', 'Votre prénom est requis.'], ['#nom', 'Votre nom est requis.'], ['#cell', 'Votre numéro de cellulaire est requis.']];
+  for (const [s, m] of requis) { if (!$(s).value.trim()) return montrerErreur(m, $(s)); }
+  if (!reCourriel.test($('#courriel').value.trim())) return montrerErreur('Veuillez entrer un courriel valide.', $('#courriel'));
+  if (!$('input[name=presence]:checked')) return montrerErreur('Veuillez indiquer si vous serez présent(e).', $('input[name=presence]'));
+  if ($('input[name=presence]:checked').value === 'Oui') {
+    for (const p of $$('.personne')) {
+      const id = p.dataset.id;
+      if (!$('#p-' + id).value.trim() || !$('#n-' + id).value.trim()) return montrerErreur('Veuillez inscrire le prénom et le nom de chaque personne ajoutée (ou retirer la fiche).', !$('#p-' + id).value.trim() ? $('#p-' + id) : $('#n-' + id));
+      const c = $('#c-' + id).value.trim();
+      if (c && !reCourriel.test(c)) return montrerErreur('Le courriel d’une personne ajoutée semble invalide.', $('#c-' + id));
+    }
+    if ($('input[name=souper]:checked').value === 'Oui' && !(parseInt($('#nbSouper').value, 10) >= 1)) return montrerErreur('Indiquez le nombre de personnes au souper du vendredi.', $('#nbSouper'));
+  }
+  return true;
+}
+
+/* ---- Construction des données ---- */
+function construire() {
+  const oui = $('input[name=presence]:checked').value === 'Oui';
+  const data = {
+    hp: $('#hp').value,
+    reponse: oui ? 'Oui' : 'Non',
+    repondant: Object.assign({ prenom: $('#prenom').value, nom: $('#nom').value, courriel: $('#courriel').value, cellulaire: $('#cell').value }, oui ? lireRestr('main') : {}),
+    personnes: [],
+    chambres: { vendredi: $('#chVen').checked, samedi: $('#chSam').checked, nombre: $('#nbChambres').value },
+    souper: { participe: $('input[name=souper]:checked').value === 'Oui', nombre: $('#nbSouper').value },
+    message: $('#message').value
+  };
+  if (oui) {
+    $$('.personne').forEach(p => {
+      const id = p.dataset.id, type = $('#t-' + id).value, adulte = type === 'Adulte';
+      data.personnes.push(Object.assign({
+        type, prenom: $('#p-' + id).value, nom: $('#n-' + id).value,
+        courriel: adulte ? $('#c-' + id).value : '', cellulaire: adulte ? $('#g-' + id).value : ''
+      }, lireRestr(id)));
+    });
+  }
+  return data;
+}
+
+/* ---- Envoi ---- */
+$('#formulaire').addEventListener('submit', async ev => {
+  ev.preventDefault();
+  if (!valider()) return;
+  const data = construire();
+  const btn = $('#envoyer');
+  const configure = !SCRIPT_URL.startsWith('COLLER_ICI');
+  const demo = /[?&]demo/.test(location.search);
+  if (!configure && !demo) return montrerErreur('Le formulaire n’est pas encore activé. Veuillez réessayer plus tard ou nous écrire directement.');
+  btn.disabled = true; btn.textContent = 'Envoi en cours…';
+  try {
+    if (configure) {
+      // Google Apps Script : réponse opaque (mode no-cors) ; une erreur réseau déclenche le catch.
+      await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) });
+    } else { console.log('MODE DÉMO – données qui seraient envoyées :', data); await new Promise(r => setTimeout(r, 400)); }
+    afficherMerci(data);
+  } catch (e) {
+    montrerErreur('Désolé, l’envoi a échoué (connexion?). Veuillez réessayer dans un instant.');
+  } finally { btn.disabled = false; btn.textContent = 'Envoyer ma réponse'; }
+});
+
+function afficherMerci(d) {
+  const oui = d.reponse === 'Oui';
+  const n = 1 + d.personnes.length;
+  $('#merciTitre').textContent = 'Merci, ' + d.repondant.prenom.trim() + '!';
+  $('#merciTexte').textContent = oui ? 'Nous avons bien reçu votre réponse et sommes ravis de vous compter parmi nous.' : 'Nous avons bien reçu votre réponse. Vous nous manquerez, merci de nous avoir écrit.';
+  const lignes = [];
+  if (oui) {
+    lignes.push(n + (n > 1 ? ' personnes confirmées' : ' personne confirmée') + '.');
+    if (d.chambres.vendredi || d.chambres.samedi) lignes.push('Chambres : ' + [d.chambres.vendredi && 'vendredi', d.chambres.samedi && 'samedi'].filter(Boolean).join(' et ') + ' (' + d.chambres.nombre + ').');
+    if (d.souper.participe) lignes.push('Souper du vendredi : ' + d.souper.nombre + ' personne(s).');
+    lignes.push('Le lien de réservation des chambres vous sera envoyé par la suite.');
+  }
+  lignes.push('Un changement? Cliquez sur « Modifier ma réponse » et renvoyez le formulaire avec le même courriel : il remplacera la précédente.');
+  $('#merciDetail').innerHTML = lignes.map(l => l.replace(/</g, '&lt;')).join('<br>');
+  $('#formulaire').style.display = 'none';
+  $('#merci').style.display = 'block';
+  $('#merci').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  $('#merci').focus({ preventScroll: true });
+}
+$('#modifier').addEventListener('click', () => {
+  $('#merci').style.display = 'none';
+  $('#formulaire').style.display = '';
+  $('#formulaire').scrollIntoView({ behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
