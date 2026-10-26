@@ -6,10 +6,14 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Isabelle &amp; Martin – Mariage le 3 juillet 2027</title>
 <meta name="description" content="Isabelle et Martin vous invitent à leur mariage le samedi 3 juillet 2027 au Manoir Rouville-Campbell.">
-<link rel="icon" href="images/favicon.png">
+<link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<script>
+/* Les images sont cherchées à la racine du site, puis dans un dossier « images/ » (au cas où). */
+function repli(i){ if(!i.dataset.r){ i.dataset.r = 1; i.src = 'images/' + i.getAttribute('src'); } }
+</script>
 <style>
 :root{
   --ivoire:#faf7f0; --ivoire2:#f3eee2; --vert:#3a4a3a; --sauge:#6b7f5e; --or:#b08d4a; --texte:#4b5a4b; --trait:#d9cfb8; --rouge:#a4473a;
@@ -75,11 +79,13 @@ nav.menu a:hover{border-color:var(--or)}
 .activites b{display:block;color:var(--vert);font-weight:600}
 .activites span{font-size:16px}
 
-/* Galerie (apparaît seulement si des photos sont ajoutées) */
+/* Galerie : reste cachée tant qu'aucune photo ne s'est chargée */
 #galerie{display:none}
-.photos{display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-top:22px}
-@media(min-width:760px){.photos{grid-template-columns:repeat(3,1fr)}}
-.photos img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--trait)}
+.photos{display:grid;gap:14px;grid-template-columns:1fr;margin-top:24px;grid-auto-flow:dense}
+@media(min-width:700px){.photos{grid-template-columns:1fr 1fr}.photos .large{grid-column:span 2}}
+.photos figure{margin:0;border:1px solid var(--or);padding:7px;background:#fffdf8;display:none}
+.photos figure.ok{display:block}
+.photos img{width:100%;height:auto;border:1px solid var(--trait)}
 
 /* Formulaire */
 #rsvp{background:var(--ivoire2);border-top:1px solid var(--trait);border-bottom:1px solid var(--trait)}
@@ -122,7 +128,7 @@ footer .noms{font-size:18px}
 
 <header class="hero">
   <div class="wrap">
-    <img class="sigle" src="images/sigle.png" alt="Sigle I &amp; M – Isabelle et Martin" width="760" height="729">
+    <img class="sigle" src="sigle.png" onerror="repli(this)" alt="Sigle I &amp; M – Isabelle et Martin" width="760" height="729">
     <h1 class="noms">ISABELLE &amp; MARTIN</h1>
     <p class="etiquette" style="margin-top:26px">Vous êtes invités à notre mariage</p>
     <p class="quand">Samedi 3 juillet 2027</p>
@@ -143,7 +149,7 @@ footer .noms{font-size:18px}
 
 <div class="cadre">
   <figure>
-    <img src="images/demande-crayon.jpg" alt="Dessin au crayon de la demande en mariage de Martin à Isabelle à Santorini, au coucher du soleil" width="1536" height="1024">
+    <img src="demande-crayon.jpg" onerror="repli(this)" alt="Dessin au crayon de la demande en mariage de Martin à Isabelle à Santorini, au coucher du soleil" width="1536" height="1024">
   </figure>
 </div>
 
@@ -175,6 +181,15 @@ footer .noms{font-size:18px}
   </div>
 </section>
 
+<section id="galerie" style="padding-top:10px">
+  <div class="wide centre">
+    <div class="sep">◆</div>
+    <p class="etiquette" style="margin-top:34px">Le Manoir</p>
+    <h2>Un aperçu des lieux</h2>
+    <div class="photos" id="photos"></div>
+  </div>
+</section>
+
 <section id="hebergement" style="padding-top:10px">
   <div class="wrap centre">
     <div class="sep">◆</div>
@@ -200,15 +215,6 @@ footer .noms{font-size:18px}
       <li><b>Rivière Richelieu</b><span>À contempler depuis les jardins, ou à explorer en canot ou en kayak.</span></li>
     </ul>
     <p style="margin-top:22px"><a href="https://belvoir.ca/manoirs/rouville-campbell/emplacement" target="_blank" rel="noopener">Voir l’onglet « Emplacement » du site du Manoir</a></p>
-  </div>
-</section>
-
-<section id="galerie" style="padding-top:10px">
-  <div class="wide centre">
-    <div class="sep">◆</div>
-    <p class="etiquette" style="margin-top:34px">Le Manoir</p>
-    <h2>Quelques images</h2>
-    <div class="photos" id="photos"></div>
   </div>
 </section>
 
@@ -312,8 +318,8 @@ footer .noms{font-size:18px}
 
 <script>
 /* ============ CONFIGURATION ============ */
-// Collez ici l’URL de l’application Web Google (voir LISEZ-MOI.md, étape « Déployer »).
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyQQt4uzlXOFRcibnLoiPhQs3LRh0xLX0PRVdWOa8KqsHAemK4rrWHT-LgZywIaKJr-/exec';
+// Collez ici l’URL de l’application Web Google (celle qui se termine par /exec).
+const SCRIPT_URL = 'COLLER_ICI_L_URL_DU_SCRIPT_GOOGLE';
 /* ======================================= */
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -322,15 +328,26 @@ const RESTR = ['Végétarien', 'Végétalien', 'Sans gluten', 'Sans lactose'];
 let compteur = 0;
 let souperManuel = false;
 
-/* ---- Photos du Manoir : s'affichent seulement si images/manoir-1.jpg ... manoir-6.jpg existent ---- */
+/* ---- Photos du Manoir : manoir-1.jpg à manoir-8.jpg (ou .jpeg), à la racine du site ou dans « images/ ».
+        Les photos manquantes sont simplement ignorées. ---- */
 (function galerie() {
-  let n = 0;
-  for (let i = 1; i <= 6; i++) {
+  const conteneur = $('#photos');
+  for (let i = 1; i <= 8; i++) {
+    const fig = document.createElement('figure');
     const img = new Image();
+    const essais = ['manoir-' + i + '.jpg', 'images/manoir-' + i + '.jpg', 'manoir-' + i + '.jpeg', 'images/manoir-' + i + '.jpeg'];
+    let k = 0;
     img.alt = 'Manoir Rouville-Campbell';
     img.loading = 'lazy';
-    img.onload = () => { $('#photos').appendChild(img); if (!n++) $('#galerie').style.display = 'block'; };
-    img.src = 'images/manoir-' + i + '.jpg';
+    img.onload = () => {
+      if (img.naturalWidth / img.naturalHeight > 2.2) fig.classList.add('large');
+      fig.classList.add('ok');
+      $('#galerie').style.display = 'block';
+    };
+    img.onerror = () => { if (++k < essais.length) img.src = essais[k]; else fig.remove(); };
+    img.src = essais[0];
+    fig.appendChild(img);
+    conteneur.appendChild(fig);
   }
 })();
 
