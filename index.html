@@ -90,9 +90,10 @@ nav.menu a:hover{border-color:var(--or)}
 /* Formulaire */
 #rsvp{background:var(--ivoire2);border-top:1px solid var(--trait);border-bottom:1px solid var(--trait)}
 form{margin-top:26px;text-align:left}
-fieldset{border:1px solid var(--trait);background:#fffdf8;padding:24px 22px 18px;margin:0 0 22px;min-width:0}
+fieldset{border:1px solid var(--trait);background:#fffdf8;padding:22px 22px 18px;margin:0 0 22px;min-width:0}
 fieldset[disabled]{display:none}
-legend{font-family:var(--sans);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--or);padding:0 10px}
+legend{float:left;width:100%;padding:0 0 14px;margin:0;font-family:var(--sans);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--or);border-bottom:1px solid var(--trait);margin-bottom:18px}
+legend + *{clear:both}
 .champ{margin:0 0 16px}
 .champ label,.lbl{display:block;font-family:var(--sans);font-size:14px;letter-spacing:.04em;color:var(--vert);margin-bottom:5px}
 .req{color:var(--rouge)}
@@ -332,13 +333,16 @@ let souperManuel = false;
         Les photos manquantes sont simplement ignorées. ---- */
 (function galerie() {
   const conteneur = $('#photos');
+  const exts = ['jpg', 'jpeg', 'JPG', 'JPEG', 'png', 'webp'];
+  const dossiers = ['', 'images/'];
   for (let i = 1; i <= 8; i++) {
+    const essais = [];
+    exts.forEach(e => dossiers.forEach(d => essais.push(d + 'manoir-' + i + '.' + e)));
     const fig = document.createElement('figure');
     const img = new Image();
-    const essais = ['manoir-' + i + '.jpg', 'images/manoir-' + i + '.jpg', 'manoir-' + i + '.jpeg', 'images/manoir-' + i + '.jpeg'];
     let k = 0;
     img.alt = 'Manoir Rouville-Campbell';
-    img.loading = 'lazy';
+    img.decoding = 'async';
     img.onload = () => {
       if (img.naturalWidth / img.naturalHeight > 2.2) fig.classList.add('large');
       fig.classList.add('ok');
